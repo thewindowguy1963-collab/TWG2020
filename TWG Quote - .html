@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Window Guy – Quote for Candice McCloud</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #f47920;
+    --orange-dim: rgba(244,121,32,0.18);
+    --orange-border: rgba(244,121,32,0.28);
+    --bg: #080401;
+    --bg-page: #0d0602;
+    --bg-header: #130800;
+    --bg-card: rgba(255,255,255,0.03);
+    --text: #f0e4d0;
+    --subtext: #c0a07a;
+    --muted: #7a6045;
+    --divider: rgba(244,121,32,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Barlow', sans-serif;
+    min-height: 100vh;
+    padding: 24px 16px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+    background: var(--bg-page);
+    border: 1px solid var(--orange-border);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.7);
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--bg-header);
+    padding: 32px 36px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2px solid var(--orange);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; right: -60px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: rgba(244,121,32,0.05);
+    pointer-events: none;
+  }
+
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--orange);
+    letter-spacing: 1px;
+    line-height: 1;
+    margin-bottom: 5px;
+  }
+  .logo-sub {
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+
+  .quote-meta { text-align: right; }
+  .qm-label {
+    font-size: 8px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--orange);
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+  .qm-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+  .qm-value {
+    font-size: 12px;
+    color: var(--subtext);
+    margin-top: 1px;
+  }
+
+  /* ── CLIENT / PROJECT ── */
+  .info-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--divider);
+  }
+  .info-block { padding: 22px 36px; }
+  .info-block + .info-block { border-left: 1px solid var(--divider); }
+  .block-label {
+    font-size: 8px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--orange);
+    font-family: 'Barlow Condensed', sans-serif;
+    margin-bottom: 10px;
+  }
+  .client-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+  }
+  .info-block p {
+    font-size: 13px;
+    color: var(--subtext);
+    line-height: 1.8;
+  }
+  .info-block p strong { color: var(--text); font-weight: 500; }
+
+  /* ── SCOPE ── */
+  .scope-section { padding: 26px 36px; border-bottom: 1px solid var(--divider); }
+  .section-title {
+    font-size: 8px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--orange);
+    font-family: 'Barlow Condensed', sans-serif;
+    margin-bottom: 16px;
+  }
+  .scope-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .scope-card {
+    background: var(--bg-card);
+    border: 1px solid var(--orange-border);
+    border-radius: 3px;
+    padding: 14px 16px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .scope-icon {
+    width: 30px; height: 30px;
+    background: var(--orange-dim);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+    border: 1px solid var(--orange-border);
+  }
+  .scope-card h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--orange);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .scope-card p { font-size: 11px; color: var(--subtext); line-height: 1.5; }
+
+  /* ── ENERGY STATS ── */
+  .energy-section {
+    padding: 22px 36px;
+    border-bottom: 1px solid var(--divider);
+    background: rgba(244,121,32,0.03);
+  }
+  .energy-intro {
+    font-size: 12px;
+    color: var(--subtext);
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
+  .energy-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--orange-border);
+    border-radius: 3px;
+    padding: 16px;
+    text-align: center;
+  }
+  .stat-big {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--orange);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat-desc { font-size: 11px; color: var(--subtext); line-height: 1.4; }
+
+  /* ── PRICING ── */
+  .pricing-section { padding: 26px 36px; border-bottom: 1px solid var(--divider); }
+  .line-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--divider);
+    gap: 16px;
+  }
+  .line-item:last-child { border-bottom: none; }
+  .item-name { font-size: 13px; color: var(--text); margin-bottom: 3px; }
+  .item-detail { font-size: 11px; color: var(--muted); line-height: 1.4; }
+  .item-price {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--orange);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ── TOTAL ── */
+  .total-section {
+    padding: 20px 36px 24px;
+    display: flex;
+    justify-content: flex-end;
+    border-bottom: 1px solid var(--divider);
+  }
+  .total-box {
+    background: var(--bg-header);
+    border: 1px solid var(--orange);
+    border-radius: 3px;
+    padding: 18px 32px;
+    text-align: right;
+    min-width: 220px;
+  }
+  .total-label {
+    font-size: 8px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--orange);
+    font-family: 'Barlow Condensed', sans-serif;
+    margin-bottom: 6px;
+  }
+  .total-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1;
+  }
+  .total-note {
+    font-size: 11px;
+    color: var(--orange);
+    margin-top: 8px;
+  }
+
+  /* ── FINANCING ── */
+  .financing-section {
+    padding: 24px 36px;
+    border-bottom: 1px solid var(--divider);
+  }
+  .financing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    padding: 22px 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-validity { font-size: 11px; color: var(--muted); line-height: 1.7; }
+  .footer-contact { text-align: right; font-size: 12px; color: var(--subtext); line-height: 1.7; }
+  .footer-contact a { color: var(--orange); text-decoration: none; }
+  .footer-brand {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--orange);
+  }
+
+  .tagline {
+    text-align: center;
+    padding: 14px 36px;
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(244,121,32,0.35);
+    border-top: 1px solid var(--divider);
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+
+  @media (max-width: 580px) {
+    .info-row, .scope-grid, .energy-stats, .financing-grid { grid-template-columns: 1fr; }
+    .info-block + .info-block { border-left: none; border-top: 1px solid var(--divider); }
+    .header { flex-direction: column; gap: 16px; }
+    .quote-meta { text-align: left; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div>
+      <div class="logo">The Window Guy</div>
+      <div class="logo-sub">Premium Window Replacement</div>
+    </div>
+    <div class="quote-meta">
+      <div class="qm-label">Quote</div>
+      <div class="qm-num">#TWG-2026-051</div>
+      <div class="qm-label">Date Issued</div>
+      <div class="qm-value">May 22, 2026</div>
+      <div class="qm-label" style="margin-top:8px;">Valid For</div>
+      <div class="qm-value">30 Days</div>
+    </div>
+  </div>
+
+  <!-- Client / Project -->
+  <div class="info-row">
+    <div class="info-block">
+      <div class="block-label">Prepared For</div>
+      <div class="client-name">Candice McCloud</div>
+      <p>6003 Crestford Park Lane</p>
+      <p>cwill8442@aol.com</p>
+      <p>(713) 817-7764</p>
+    </div>
+    <div class="info-block">
+      <div class="block-label">Project Details</div>
+      <p><strong>Window Count:</strong> 7 Windows (Downstairs)</p>
+      <p><strong>Window Type:</strong> Double Hung</p>
+      <p><strong>Timeline:</strong> Immediately</p>
+      <p><strong>Preferred Contact:</strong> Text</p>
+    </div>
+  </div>
+
+  <!-- Scope of Work -->
+  <div class="scope-section">
+    <div class="section-title">Scope of Work — What's Included</div>
+    <div class="scope-grid">
+      <div class="scope-card">
+        <div class="scope-icon">🪵</div>
+        <div>
+          <h4>Wood Rot Removal</h4>
+          <p>We inspect and remove all deteriorated wood around each window frame before installation begins. No rot gets left behind.</p>
+        </div>
+      </div>
+      <div class="scope-card">
+        <div class="scope-icon">🔲</div>
+        <div>
+          <h4>Custom Fit to Opening</h4>
+          <p>Each window is precisely fitted to your existing opening — no gaps, no shortcuts. Clean, tight, professional finish.</p>
+        </div>
+      </div>
+      <div class="scope-card">
+        <div class="scope-icon">💧</div>
+        <div>
+          <h4>Water Infiltration Seal</h4>
+          <p>We seal and flash every window to prevent future water intrusion — protecting your home from moisture damage long-term.</p>
+        </div>
+      </div>
+      <div class="scope-card">
+        <div class="scope-icon">🪟</div>
+        <div>
+          <h4>Full Installation</h4>
+          <p>Double hung windows installed by trained professionals. Interior and exterior trim restored. Cleanup included.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Energy Efficiency -->
+  <div class="energy-section">
+    <div class="section-title">Energy Efficiency — Built to Save You Money</div>
+    <p class="energy-intro">Our double hung windows feature dual-pane insulated glass with argon gas fill, Low-E coating, and weather-tight seals — keeping your home cooler in Texas summers and warmer in winter. Most homeowners see energy savings within the first billing cycle.</p>
+    <div class="energy-stats">
+      <div class="stat-card">
+        <div class="stat-big">Low-E</div>
+        <div class="stat-desc">Low-emissivity glass coating blocks UV rays and reduces heat transfer</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-big">30%</div>
+        <div class="stat-desc">Average reduction in heating & cooling costs with new energy-efficient windows</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-big">$300+</div>
+        <div class="stat-desc">Estimated annual savings on energy bills for a 7-window replacement</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pricing -->
+  <div class="pricing-section">
+    <div class="section-title">Pricing Breakdown</div>
+    <div class="line-item">
+      <div>
+        <div class="item-name">Window Sourcing & Product Selection</div>
+        <div class="item-detail">We shop, source, and procure all 7 double hung windows on your behalf — best product at the best price, handled for you</div>
+      </div>
+      <div class="item-price">$1,400</div>
+    </div>
+    <div class="line-item">
+      <div>
+        <div class="item-name">Professional Installation — 7 Windows</div>
+        <div class="item-detail">Full installation by trained window specialists, custom-fit to each opening with precision</div>
+      </div>
+      <div class="item-price">$2,800</div>
+    </div>
+    <div class="line-item">
+      <div>
+        <div class="item-name">Wood Rot Removal & Frame Restoration</div>
+        <div class="item-detail">Full inspection, rot removal, and structural frame prep on all 7 windows</div>
+      </div>
+      <div class="item-price">$490</div>
+    </div>
+    <div class="line-item">
+      <div>
+        <div class="item-name">Water Infiltration Sealing & Flashing</div>
+        <div class="item-detail">Perimeter seal, weather flashing, and moisture barrier on every window</div>
+      </div>
+      <div class="item-price">$350</div>
+    </div>
+    <div class="line-item">
+      <div>
+        <div class="item-name">Interior & Exterior Trim Restoration</div>
+        <div class="item-detail">Trim reset, caulked, and finished for a clean professional look inside and out</div>
+      </div>
+      <div class="item-price">$350</div>
+    </div>
+    <div class="line-item">
+      <div>
+        <div class="item-name">Lifetime Warranty — Glass Breakage Protection</div>
+        <div class="item-detail">Every window covered for life against glass breakage. If it breaks, we replace it. No questions asked.</div>
+      </div>
+      <div class="item-price">$400</div>
+    </div>
+    <div class="line-item">
+      <div>
+        <div class="item-name">Haul Away, Disposal & Job Site Cleanup</div>
+        <div class="item-detail">All old windows and debris removed from property</div>
+      </div>
+      <div class="item-price">$210</div>
+    </div>
+  </div>
+
+  <!-- Total -->
+  <div class="total-section">
+    <div class="total-box">
+      <div class="total-label">Grand Total</div>
+      <div class="total-amount">$7,000</div>
+      <div class="total-note">✦ Lifetime Glass Breakage Warranty Included</div>
+    </div>
+  </div>
+
+  <!-- Financing -->
+  <div class="financing-section">
+    <div class="section-title">Flexible Financing Available</div>
+    <div class="financing-grid">
+      <div class="scope-card">
+        <div class="scope-icon">💳</div>
+        <div>
+          <h4>Low Monthly Payments</h4>
+          <p>Finance your full project with approved credit. Get your windows now and pay over time — as low as $94–$125/mo with approved financing.</p>
+        </div>
+      </div>
+      <div class="scope-card">
+        <div class="scope-icon">✅</div>
+        <div>
+          <h4>Quick Approval Process</h4>
+          <p>We partner with Synchrony, Ally Bank, and GoodLeap to get you approved fast. Most decisions come back same day.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-validity">
+      This quote is valid for 30 days from the date issued.<br>
+      Financing options available upon approved credit.
+    </div>
+    <div class="footer-contact">
+      <div class="footer-brand">The Window Guy</div>
+      <a href="https://thewindowguy.org">thewindowguy.org</a><br>
+      Texas & Oklahoma
+    </div>
+  </div>
+
+  <div class="tagline">Your Home. Our Expertise. The Right Fit — Guaranteed.</div>
+
+</div>
+</body>
+</html>
